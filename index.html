@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayy Funds | Investor Prospectus</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-red: #E53935;
+            --color-gray-light: #f5f5f5;
+            --color-gray: #888888;
+            --color-gray-dark: #333333;
+            --font-serif: 'Instrument Serif', Georgia, serif;
+            --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        /* Print styles */
+        @media print {
+            body { font-size: 11pt; line-height: 1.5; }
+            .page-break { page-break-before: always; }
+            .no-print { display: none !important; }
+            section { page-break-inside: avoid; }
+            h2, h3 { page-break-after: avoid; }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Cover Page */
+        .cover {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--color-white);
+            position: relative;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(229, 57, 53, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .logo-container { margin-bottom: 3rem; }
+        
+        .logo {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 4rem;
+            letter-spacing: -0.04em;
+            color: var(--color-black);
+        }
+        
+        .logo span { display: inline-block; }
+        .logo .w { transform: translateY(0); }
+        .logo .a { transform: translateY(-8px); font-size: 0.75em; }
+        .logo .y1 { transform: translateY(4px); }
+        .logo .y2 { transform: translateY(4px); }
+        .logo .res { 
+            font-size: 0.5em;
+            transform: rotate(-12deg) translateY(-16px);
+            display: inline-block;
+            margin-left: 4px;
+        }
+        
+        .cover-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-gray);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        .cover-meta {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-gray-light);
+        }
+        
+        .cover-meta p {
+            color: var(--color-gray);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cover-date { font-weight: 600; color: var(--color-black); }
+        
+        .confidential-badge {
+            display: inline-block;
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 0.5rem 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: 2rem;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-gray-light);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--color-black);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--color-gray-dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--color-red); }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+        
+        section:last-child { border-bottom: none; }
+        
+        .section-number {
+            font-family: var(--font-serif);
+            font-size: 0.875rem;
+            color: var(--color-gray);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        h3 {
+            font-family: var(--font-sans);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            color: var(--color-black);
+        }
+        
+        h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: var(--color-gray-dark);
+        }
+        
+        p { margin-bottom: 1.25rem; font-size: 1rem; }
+        
+        .lead {
+            font-size: 1.25rem;
+            color: var(--color-gray-dark);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .highlight { color: var(--color-red); font-weight: 500; }
+        
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: var(--color-gray-light);
+            padding: 2rem;
+            border-radius: 0;
+            border-left: 3px solid var(--color-black);
+        }
+        
+        .card-red { border-left-color: var(--color-red); }
+        .card h4 { margin-top: 0; font-size: 1.125rem; }
+        .card p { margin-bottom: 0; font-size: 0.9375rem; color: var(--color-gray-dark); }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9375rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+        
+        th {
+            font-weight: 600;
+            background: var(--color-gray-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        tr:hover { background: var(--color-gray-light); }
+        
+        /* Lists */
+        ul, ol { margin: 1.5rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+        
+        /* Callout */
+        .callout {
+            background: var(--color-gray-light);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--color-black);
+        }
+        
+        .callout-warning {
+            border-left-color: var(--color-red);
+            background: #fff5f5;
+        }
+        
+        .callout h4 { margin-top: 0; }
+        .callout p:last-child { margin-bottom: 0; }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--color-gray-light);
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        .stat { text-align: center; }
+        
+        .stat-value {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--color-black);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--color-gray-light);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            background: var(--color-black);
+            border-radius: 50%;
+            transform: translateX(-4px);
+        }
+        
+        .timeline-item:last-child { padding-bottom: 0; }
+        
+        .timeline-phase {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Package boxes */
+        .package {
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-light);
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .package-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+        
+        .package-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--color-black);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+        
+        .package-name { font-size: 1.5rem; font-weight: 600; }
+        .package-tagline { color: var(--color-gray); font-size: 0.875rem; }
+        
+        .package-features { list-style: none; padding-left: 0; }
+        
+        .package-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            color: var(--color-red);
+            font-weight: 700;
+        }
+        
+        /* Fee table */
+        .fee-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 2rem 0;
+            border: 1px solid var(--color-black);
+        }
+        
+        .fee-item {
+            padding: 2rem;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+        
+        .fee-item:nth-child(odd) { border-right: 1px solid var(--color-gray-light); }
+        .fee-item:last-child, .fee-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+        
+        .fee-value { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 0.25rem; }
+        .fee-label { font-size: 0.875rem; color: var(--color-gray); }
+        
+        /* Disclaimer */
+        .disclaimer {
+            font-size: 0.875rem;
+            color: var(--color-gray);
+            padding: 2rem;
+            background: var(--color-gray-light);
+            margin: 2rem 0;
+        }
+        
+        .disclaimer p { margin-bottom: 1rem; }
+        .disclaimer p:last-child { margin-bottom: 0; }
+        
+        /* Footer */
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        footer p { color: var(--color-gray); font-size: 0.875rem; }
+        
+        .footer-logo {
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+        }
+        
+        .footer-contact { margin-top: 2rem; }
+        
+        .footer-contact a {
+            color: var(--color-white);
+            text-decoration: none;
+            border-bottom: 1px solid var(--color-gray);
+            transition: border-color 0.2s;
+        }
+        
+        .footer-contact a:hover { border-color: var(--color-white); }
+        
+        /* TOC */
+        .toc {
+            background: var(--color-gray-light);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .toc h3 { margin-top: 0; }
+        
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 2rem;
+        }
+        
+        @media (max-width: 600px) { .toc-list { grid-template-columns: 1fr; } }
+        
+        .toc-list a {
+            color: var(--color-gray-dark);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .toc-list a:hover { color: var(--color-red); border-color: var(--color-red); }
+        .toc-num { color: var(--color-gray); font-size: 0.75rem; }
+        
+        /* Risk levels */
+        .risk-meter { display: flex; gap: 0.25rem; margin: 1rem 0; }
+        .risk-bar { height: 8px; flex: 1; background: var(--color-gray-light); }
+        .risk-bar.active { background: var(--color-red); }
+        
+        /* Contact info */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+        
+        .contact-item { text-align: center; padding: 2rem; background: var(--color-gray-light); }
+        
+        .contact-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-value { font-size: 1.125rem; font-weight: 500; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cover-title { font-size: 2.5rem; }
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.75rem; }
+            .logo { font-size: 2.5rem; }
+            .nav { display: none; }
+        }
+        
+        /* Signature block */
+        .signature-block {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-gray-light);
+        }
+        
+        .signature-line {
+            width: 200px;
+            border-bottom: 1px solid var(--color-black);
+            margin-bottom: 0.5rem;
+            height: 40px;
+        }
+        
+        .signature-name { font-weight: 600; }
+        .signature-title { font-size: 0.875rem; color: var(--color-gray); }
+    </style>
+</head>
+<body>
+    
+    <!-- Cover Page -->
+    <div class="cover">
+        <div class="logo-container">
+            <div class="logo">
+                <span class="w">w</span><span class="a">a</span><span class="y1">y</span><span class="y2">y</span><span class="res">res.</span>
+            </div>
+        </div>
+        
+        <h1 class="cover-title">Wayy Funds</h1>
+        <p class="cover-subtitle">Quantitative Investment Strategies for the Modern Era</p>
+        
+        <p style="font-size: 1.125rem; max-width: 600px; color: var(--color-gray-dark);">
+            <em>research for people · people for research</em>
+        </p>
+        
+        <div class="cover-meta">
+            <p>Investor Prospectus & Private Offering Memorandum</p>
+            <p class="cover-date">December 2024</p>
+            <p style="margin-top: 1rem;">Wayy Research LLC · Buffalo, NY</p>
+        </div>
+        
+        <div class="confidential-badge">Confidential</div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="nav no-print">
+        <a href="#" class="nav-logo">wayy funds</a>
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#strategies">Strategies</a></li>
+            <li><a href="#terms">Terms</a></li>
+            <li><a href="#risks">Risks</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Table of Contents -->
+    <section class="container">
+        <span class="section-number">§ 00</span>
+        <h2>Contents</h2>
+        
+        <div class="toc">
+            <ol class="toc-list">
+                <li><a href="#summary">Executive Summary <span class="toc-num">01</span></a></li>
+                <li><a href="#overview">Investment Overview <span class="toc-num">02</span></a></li>
+                <li><a href="#technology">Technology Stack <span class="toc-num">03</span></a></li>
+                <li><a href="#strategies">Investment Strategies <span class="toc-num">04</span></a></li>
+                <li><a href="#products">Product Offerings <span class="toc-num">05</span></a></li>
+                <li><a href="#terms">Terms of Offering <span class="toc-num">06</span></a></li>
+                <li><a href="#management">Management Team <span class="toc-num">07</span></a></li>
+                <li><a href="#risks">Risk Factors <span class="toc-num">08</span></a></li>
+                <li><a href="#legal">Legal & Compliance <span class="toc-num">09</span></a></li>
+                <li><a href="#contact">Contact Information <span class="toc-num">10</span></a></li>
+            </ol>
+        </div>
+    </section>
+    
+    <!-- Executive Summary -->
+    <section id="summary" class="container">
+        <span class="section-number">§ 01</span>
+        <h2>Executive Summary</h2>
+        
+        <p class="lead">
+            Wayy Funds is a quantitative investment platform that leverages proprietary research tools, 
+            advanced forecasting algorithms, and systematic trading strategies to generate risk-adjusted 
+            returns for investors.
+        </p>
+        
+        <p>
+            Built on the foundation of <span class="highlight">Wayy Research</span>—an AI/ML research and development 
+            firm established in 2024—our investment platform integrates three core technology packages that work 
+            together to identify, validate, and execute trading strategies across multiple asset classes including 
+            equities, cryptocurrencies, and derivatives.
+        </p>
+        
+        <p>
+            Our mission is simple: <strong>make sophisticated quantitative finance accessible</strong>. 
+            While traditional hedge funds operate as black boxes, we believe in radical transparency. 
+            Every strategy we deploy is rigorously backtested, statistically validated, and continuously monitored.
+        </p>
+        
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-value">32+</div>
+                <div class="stat-label">Data Providers</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Crypto Exchanges</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">113</div>
+                <div class="stat-label">Test Coverage</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">2/20</div>
+                <div class="stat-label">Fee Structure</div>
+            </div>
+        </div>
+        
+        <h3>What Makes Us Different</h3>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h4>Transparency First</h4>
+                <p>Every strategy is documented, every backtest is shared, every risk is disclosed. You always know what's happening with your money.</p>
+            </div>
+            <div class="card card-red">
+                <h4>Research-Driven</h4>
+                <p>Our strategies are built on rigorous academic research, including fractal market hypothesis and advanced statistical validation.</p>
+            </div>
+            <div class="card">
+                <h4>Technology-Enabled</h4>
+                <p>Purpose-built open-source infrastructure that processes market data in real-time across 32+ providers and 100+ exchanges.</p>
+            </div>
+            <div class="card card-red">
+                <h4>Statistical Rigor</h4>
+                <p>Every strategy undergoes permutation testing to ensure returns are statistically significant—not just luck.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Investment Overview -->
+    <section id="overview" class="container page-break">
+        <span class="section-number">§ 02</span>
+        <h2>Investment Overview</h2>
+        
+        <p class="lead">
+            Wayy Funds offers two distinct paths for investors: a subscription-based strategy deployment service 
+            and direct investment in our managed fund strategies.
+        </p>
+        
+        <h3>The Wayy Finance Platform</h3>
+        
+        <p>
+            Wayy Finance is our comprehensive quantitative trading platform that integrates our three core 
+            technology packages—<strong>FracTime</strong>, <strong>WRData</strong>, and <strong>WRTrade</strong>—into 
+            a unified system for forecasting, data aggregation, and trade execution.
+        </p>
+        
+        <h3>Investment Philosophy</h3>
+        
+        <p>
+            Our investment approach is rooted in the belief that markets exhibit <em>fractal patterns</em>—repeating 
+            structures at different time scales that can be identified and exploited through quantitative methods. 
+            Rather than attempting to predict specific price movements, we seek to identify statistical edges that 
+            persist over time.
+        </p>
+        
+        <div class="callout">
+            <h4>Core Principles</h4>
+            <ul>
+                <li><strong>Systematic Execution:</strong> All trades are executed algorithmically based on predefined rules, removing emotional decision-making.</li>
+                <li><strong>Diversification:</strong> Multiple uncorrelated strategies operating across different asset classes and time horizons.</li>
+                <li><strong>Risk Management:</strong> Kelly criterion-optimized position sizing and strict drawdown limits.</li>
+                <li><strong>Continuous Validation:</strong> Ongoing monitoring and walk-forward testing to detect strategy decay.</li>
+            </ul>
+        </div>
+        
+        <h3>Target Markets</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Asset Class</th>
+                    <th>Instruments</th>
+                    <th>Strategy Types</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Equities</strong></td>
+                    <td>US stocks, ETFs, options</td>
+                    <td>Trend following, momentum, mean reversion</td>
+                </tr>
+                <tr>
+                    <td><strong>Cryptocurrencies</strong></td>
+                    <td>BTC, ETH, altcoins, perpetual futures</td>
+                    <td>Arbitrage, momentum, market making</td>
+                </tr>
+                <tr>
+                    <td><strong>Derivatives</strong></td>
+                    <td>Options, futures, structured products</td>
+                    <td>Volatility trading, hedging</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <!-- Technology Stack -->
+    <section id="technology" class="container page-break">
+        <span class="section-number">§ 03</span>
+        <h2>Technology Stack</h2>
+        
+        <p class="lead">
+            Our platform is built on three open-source Python packages developed by Wayy Research. 
+            This modular architecture ensures reliability, enables rapid iteration, and provides 
+            complete transparency into our methodologies.
+        </p>
+        
+        <!-- FracTime -->
+        <div class="package">
+            <div class="package-header">
+                <div class="package-icon">FT</div>
+                <div>
+                    <div class="package-name">FracTime</div>
+                    <div class="package-tagline">Fractal-Based Time Series Forecasting</div>
+                </div>
+            </div>
+            
+            <p>
+                FracTime implements the Fractal Market Hypothesis through advanced time series analysis. 
+                It provides tools for computing fractal properties of financial data—including Hurst exponents 
+                and fractal dimensions—and uses these to generate probabilistic forecasts.
+            </p>
+            
+            <ul class="package-features">
+                <li>Hurst exponent analysis for trend/mean-reversion classification</li>
+                <li>Ensemble forecasting combining ARIMA, GARCH, Prophet, and LSTM models</li>
+                <li>Monte Carlo simulation for confidence interval estimation</li>
+                <li>Walk-forward backtesting with comprehensive performance metrics</li>
+                <li>Automatic model selection with statistical significance testing</li>
+            </ul>
+            
+            <p style="font-size: 0.875rem; color: var(--color-gray);">
+                <a href="https://github.com/Wayy-Research/fracTime" style="color: var(--color-gray);">github.com/Wayy-Research/fracTime</a>
+            </p>
+        </div>
+        
+        <!-- WRData -->
+        <div class="package">
+            <div class="package-header">
+                <div class="package-icon">WD</div>
+                <div>
+                    <div class="package-name">WRData</div>
+                    <div class="package-tagline">Unified Market Data Infrastructure</div>
+                </div>
+            </div>
+            
+            <p>
+                WRData provides dead-simple access to historical and real-time market data from over 32 providers 
+                and 100+ cryptocurrency exchanges. A single API abstracts away the complexity of different data 
+                sources, formats, and authentication methods.
+            </p>
+            
+            <ul class="package-features">
+                <li>32+ data providers including Yahoo Finance, Polygon, Alpaca, FRED, and CoinGecko</li>
+                <li>Real-time WebSocket streaming from Coinbase, Finnhub, Kraken, and more</li>
+                <li>Level 2 orderbook data with full depth-of-market updates</li>
+                <li>Options chains with Greeks from Tradier and Interactive Brokers</li>
+                <li>Auto-detection of asset types from symbol patterns</li>
+                <li>Built on Polars for 10-50x faster processing than pandas</li>
+            </ul>
+            
+            <p style="font-size: 0.875rem; color: var(--color-gray);">
+                <a href="https://github.com/Wayy-Research/wrdata" style="color: var(--color-gray);">github.com/Wayy-Research/wrdata</a>
+            </p>
+        </div>
+        
+        <!-- WRTrade -->
+        <div class="package">
+            <div class="package-header">
+                <div class="package-icon">WT</div>
+                <div>
+                    <div class="package-name">WRTrade</div>
+                    <div class="package-tagline">Build, Test, Deploy, Trade</div>
+                </div>
+            </div>
+            
+            <p>
+                WRTrade is our complete backtesting and live trading framework. It takes strategies from 
+                research to production with built-in validation tools that ensure statistical significance 
+                before any real capital is deployed.
+            </p>
+            
+            <ul class="package-features">
+                <li>N-dimensional portfolio construction with hierarchical weighting</li>
+                <li>Permutation testing to detect overfitting (1000+ simulation runs)</li>
+                <li>Kelly criterion optimization for position sizing</li>
+                <li>Walk-forward validation with out-of-sample testing</li>
+                <li>CLI-based strategy deployment to paper and live trading</li>
+                <li>Multi-broker support including Alpaca and Interactive Brokers</li>
+            </ul>
+            
+            <p style="font-size: 0.875rem; color: var(--color-gray);">
+                <a href="https://github.com/Wayy-Research/wrtrade" style="color: var(--color-gray);">github.com/Wayy-Research/wrtrade</a>
+            </p>
+        </div>
+        
+        <h3>Technology Architecture</h3>
+        
+        <div class="callout">
+            <p>
+                <strong>Data Flow:</strong> WRData aggregates market information → FracTime analyzes patterns 
+                and generates forecasts → WRTrade constructs portfolios, validates strategies, and executes trades.
+            </p>
+            <p style="margin-bottom: 0;">
+                All code is open-source and MIT-licensed, enabling investors to audit our methodologies 
+                and verify our claims independently.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Investment Strategies -->
+    <section id="strategies" class="container page-break">
+        <span class="section-number">§ 04</span>
+        <h2>Investment Strategies</h2>
+        
+        <p class="lead">
+            Our strategies are research-driven, rigorously validated, and designed to generate returns 
+            through systematic exploitation of market inefficiencies rather than directional bets.
+        </p>
+        
+        <h3>Strategy Development Process</h3>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-phase">Phase 1</div>
+                <div class="timeline-title">Research & Hypothesis</div>
+                <p>Identify potential market inefficiencies through academic research, fractal analysis, and pattern recognition across historical data.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Phase 2</div>
+                <div class="timeline-title">Backtest Development</div>
+                <p>Implement the strategy programmatically and run extensive backtests across multiple market regimes and time periods.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Phase 3</div>
+                <div class="timeline-title">Statistical Validation</div>
+                <p>Run 1000+ permutation tests to verify that performance is statistically significant (p-value &lt; 0.05) and not due to chance.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Phase 4</div>
+                <div class="timeline-title">Walk-Forward Testing</div>
+                <p>Validate on out-of-sample data to ensure the strategy generalizes beyond the training period.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Phase 5</div>
+                <div class="timeline-title">Paper Trading</div>
+                <p>Deploy to paper trading for 30-60 days minimum to verify execution and behavior in live market conditions.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Phase 6</div>
+                <div class="timeline-title">Live Deployment</div>
+                <p>Graduate to live trading with conservative position sizing, with continuous monitoring for strategy decay.</p>
+            </div>
+        </div>
+        
+        <h3>Strategy Categories</h3>
+        
+        <h4>Trend Following</h4>
+        <p>
+            These strategies identify and follow directional trends across multiple timeframes. Using fractal 
+            analysis, we determine whether an asset is in a trending (Hurst &gt; 0.5) or mean-reverting 
+            (Hurst &lt; 0.5) regime and position accordingly.
+        </p>
+        
+        <h4>Mean Reversion</h4>
+        <p>
+            When assets deviate significantly from fair value, our mean reversion strategies take contrarian 
+            positions. We use statistical measures including z-scores, Bollinger Bands, and RSI to identify 
+            oversold/overbought conditions.
+        </p>
+        
+        <h4>Multi-Strategy Portfolios</h4>
+        <p>
+            Rather than relying on any single approach, we construct portfolios of multiple uncorrelated 
+            strategies. Kelly criterion optimization determines the optimal allocation to each strategy.
+        </p>
+    </section>
+    
+    <!-- Product Offerings -->
+    <section id="products" class="container page-break">
+        <span class="section-number">§ 05</span>
+        <h2>Product Offerings</h2>
+        
+        <p class="lead">
+            We offer two distinct products to serve different investor needs: a subscription-based 
+            strategy deployment service and a managed investment fund.
+        </p>
+        
+        <h3>Product 1: Strategy Subscription Service</h3>
+        
+        <p>
+            For investors who want to maintain control of their own brokerage accounts while leveraging 
+            our research and strategies, we offer a subscription service that deploys our validated 
+            strategies directly to your Alpaca brokerage account.
+        </p>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h4>How It Works</h4>
+                <p>Connect your Alpaca account → Select from our library of validated strategies → 
+                   Our system executes trades automatically based on your risk parameters.</p>
+            </div>
+            <div class="card card-red">
+                <h4>You Maintain Control</h4>
+                <p>Your capital stays in your account. You can pause, adjust, or stop strategies 
+                   at any time. Full transparency into every trade.</p>
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Subscription Tier</th>
+                    <th>Features</th>
+                    <th>Monthly Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Starter</strong></td>
+                    <td>1 strategy, paper trading only, basic analytics</td>
+                    <td>$49/month</td>
+                </tr>
+                <tr>
+                    <td><strong>Standard</strong></td>
+                    <td>3 strategies, live trading, performance dashboard</td>
+                    <td>$149/month</td>
+                </tr>
+                <tr>
+                    <td><strong>Professional</strong></td>
+                    <td>Unlimited strategies, custom parameters, priority support</td>
+                    <td>$499/month</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Product 2: Wayy Funds Managed Investment</h3>
+        
+        <p>
+            For investors who prefer a hands-off approach, our managed fund provides full-service 
+            portfolio management using our quantitative strategies.
+        </p>
+        
+        <div class="fee-grid">
+            <div class="fee-item">
+                <div class="fee-value">2%</div>
+                <div class="fee-label">Annual Management Fee</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-value">20%</div>
+                <div class="fee-label">Performance Fee (above hurdle)</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-value">$25K</div>
+                <div class="fee-label">Minimum Investment</div>
+            </div>
+            <div class="fee-item">
+                <div class="fee-value">Quarterly</div>
+                <div class="fee-label">Liquidity</div>
+            </div>
+        </div>
+        
+        <h4>Friends & Family Round</h4>
+        
+        <p>
+            We are currently offering a limited <strong>Friends & Family</strong> round for early investors:
+        </p>
+        
+        <ul>
+            <li>Reduced minimum investment of $10,000</li>
+            <li>No management fee for the first 12 months</li>
+            <li>Direct access to the founding team</li>
+            <li>Opportunity to influence product development</li>
+        </ul>
+        
+        <div class="callout-warning callout">
+            <h4>Important Notice</h4>
+            <p>
+                The Friends & Family round is limited to accredited investors as defined by SEC 
+                Regulation D. Investments in this phase carry additional risks associated with 
+                early-stage ventures.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Terms of Offering -->
+    <section id="terms" class="container page-break">
+        <span class="section-number">§ 06</span>
+        <h2>Terms of Offering</h2>
+        
+        <p class="lead">
+            This section outlines the key terms for investment in Wayy Funds.
+        </p>
+        
+        <h3>Investment Structure</h3>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Fund Type</strong></td>
+                    <td>Private Limited Partnership (transitioning to RIA structure)</td>
+                </tr>
+                <tr>
+                    <td><strong>Securities Offered</strong></td>
+                    <td>Limited Partnership Interests</td>
+                </tr>
+                <tr>
+                    <td><strong>Minimum Investment</strong></td>
+                    <td>$25,000 (standard) / $10,000 (Friends & Family)</td>
+                </tr>
+                <tr>
+                    <td><strong>Investor Eligibility</strong></td>
+                    <td>Accredited Investors only (Regulation D, Rule 506(c))</td>
+                </tr>
+                <tr>
+                    <td><strong>Lock-up Period</strong></td>
+                    <td>12 months from date of investment</td>
+                </tr>
+                <tr>
+                    <td><strong>Redemption</strong></td>
+                    <td>Quarterly, with 30 days advance notice</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Fee Structure</h3>
+        
+        <h4>Management Fee</h4>
+        <p>
+            An annual management fee of <strong>2%</strong> of assets under management, calculated 
+            monthly and payable quarterly.
+        </p>
+        
+        <h4>Performance Fee</h4>
+        <p>
+            A performance fee of <strong>20%</strong> of net profits above a hurdle rate of 6% 
+            annualized, calculated quarterly with a high-water mark provision.
+        </p>
+        
+        <h3>Use of Proceeds</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Allocation</th>
+                    <th>Percentage</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Trading Capital</td>
+                    <td>85%</td>
+                    <td>Deployment into quantitative strategies</td>
+                </tr>
+                <tr>
+                    <td>Technology Infrastructure</td>
+                    <td>7%</td>
+                    <td>Data feeds, servers, development</td>
+                </tr>
+                <tr>
+                    <td>Operations</td>
+                    <td>5%</td>
+                    <td>Legal, compliance, administration</td>
+                </tr>
+                <tr>
+                    <td>Reserve</td>
+                    <td>3%</td>
+                    <td>Cash buffer for redemptions</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <!-- Management Team -->
+    <section id="management" class="container page-break">
+        <span class="section-number">§ 07</span>
+        <h2>Management Team</h2>
+        
+        <p class="lead">
+            Wayy Funds is led by experienced professionals with backgrounds spanning quantitative finance, 
+            technology development, and trading operations.
+        </p>
+        
+        <div class="card" style="margin-bottom: 2rem;">
+            <h4 style="margin-top: 0;">Founder & Portfolio Manager</h4>
+            <p>
+                <strong>9+ years</strong> of experience across trading floors and technology consultancies. 
+                Background includes roles at major financial institutions focusing on middle office technology 
+                and derivatives operations. FINRA licensed (Series 57) with deep expertise in quantitative 
+                methods, systematic trading, and financial technology.
+            </p>
+            <p style="margin-bottom: 0;">
+                <strong>Education:</strong> B.S. Statistics, Loyola University Chicago; ML/AI Intensive, Deep Atlas (2024)
+            </p>
+        </div>
+        
+        <h3>Service Providers</h3>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td><strong>Prime Broker</strong></td>
+                    <td>Alpaca Securities LLC / Interactive Brokers</td>
+                </tr>
+                <tr>
+                    <td><strong>Custodian</strong></td>
+                    <td>To be determined</td>
+                </tr>
+                <tr>
+                    <td><strong>Administrator</strong></td>
+                    <td>Self-administered during beta phase</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <!-- Risk Factors -->
+    <section id="risks" class="container page-break">
+        <span class="section-number">§ 08</span>
+        <h2>Risk Factors</h2>
+        
+        <p class="lead">
+            Investment in Wayy Funds involves significant risks. Prospective investors should carefully 
+            consider the following risk factors before making an investment decision.
+        </p>
+        
+        <div class="callout-warning callout">
+            <h4>General Investment Risk</h4>
+            <p>
+                <strong>Past performance is not indicative of future results.</strong> All investments 
+                involve risk, including the possible loss of principal.
+            </p>
+        </div>
+        
+        <h3>Market Risks</h3>
+        
+        <h4>Market Risk</h4>
+        <p>
+            The value of the Fund's investments may decline due to general market conditions, economic 
+            trends, or other factors beyond the control of the Manager.
+        </p>
+        
+        <h4>Cryptocurrency Risk</h4>
+        <p>
+            Investments in cryptocurrencies are highly speculative and involve substantial risks including 
+            extreme price volatility, regulatory uncertainty, and technological risks.
+        </p>
+        
+        <h4>Liquidity Risk</h4>
+        <p>
+            Some investments may be difficult to sell quickly without a significant price concession.
+        </p>
+        
+        <h3>Strategy Risks</h3>
+        
+        <h4>Quantitative Strategy Risk</h4>
+        <p>
+            The Fund relies on quantitative models that may not perform as expected. Models are based on 
+            historical data and may fail to adapt to changing market conditions.
+        </p>
+        
+        <h4>Technology Risk</h4>
+        <p>
+            The Fund depends on complex technology systems. System failures, bugs, or cybersecurity incidents 
+            could result in significant losses.
+        </p>
+        
+        <h3>Operational Risks</h3>
+        
+        <h4>Early-Stage Risk</h4>
+        <p>
+            Wayy Funds is a new venture with a limited operating history. Early-stage investment 
+            vehicles carry elevated risks.
+        </p>
+        
+        <h4>Key Person Risk</h4>
+        <p>
+            The Fund's success is substantially dependent on the skills and continued involvement of 
+            the founding team.
+        </p>
+        
+        <div class="risk-meter">
+            <div class="risk-bar active"></div>
+            <div class="risk-bar active"></div>
+            <div class="risk-bar active"></div>
+            <div class="risk-bar active"></div>
+            <div class="risk-bar"></div>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--color-gray); text-align: center;">
+            Risk Level: High — Suitable for investors with high risk tolerance
+        </p>
+    </section>
+    
+    <!-- Legal & Compliance -->
+    <section id="legal" class="container page-break">
+        <span class="section-number">§ 09</span>
+        <h2>Legal & Compliance</h2>
+        
+        <p class="lead">
+            This section contains important legal disclosures and compliance information.
+        </p>
+        
+        <h3>Jurisdictional Notice</h3>
+        
+        <p>
+            This offering is made pursuant to SEC Regulation D, Rule 506(c). This offering 
+            is not registered under the Securities Act of 1933 or any state securities laws.
+        </p>
+        
+        <h3>Tax Implications</h3>
+        
+        <p>
+            Investment in the Fund may have significant tax consequences. Investors should consult 
+            their own tax advisors regarding the specific tax implications.
+        </p>
+        
+        <div class="disclaimer">
+            <p><strong>DISCLAIMER</strong></p>
+            <p>
+                This document is for informational purposes only and does not constitute legal, 
+                tax, or investment advice. An investment in Wayy Funds is speculative and involves 
+                a high degree of risk. Investors should only invest risk capital that they can 
+                afford to lose entirely.
+            </p>
+            <p>
+                Neither the Securities and Exchange Commission nor any state securities commission 
+                has approved or disapproved of these securities or determined if this prospectus 
+                is truthful or complete.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contact Information -->
+    <section id="contact" class="container">
+        <span class="section-number">§ 10</span>
+        <h2>Contact Information</h2>
+        
+        <p class="lead">
+            For more information about Wayy Funds or to begin the investment process, please 
+            contact us using the information below.
+        </p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="contact-label">Website</div>
+                <div class="contact-value">wayyresearch.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">invest@wayyresearch.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Location</div>
+                <div class="contact-value">Buffalo, NY</div>
+            </div>
+        </div>
+        
+        <h3>Next Steps</h3>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-phase">Step 1</div>
+                <div class="timeline-title">Schedule a Consultation</div>
+                <p>Reach out to discuss your investment goals and learn more about our strategies.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Step 2</div>
+                <div class="timeline-title">Review Documentation</div>
+                <p>Receive and review the complete offering documents, including subscription agreement.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Step 3</div>
+                <div class="timeline-title">Complete Subscription</div>
+                <p>Submit accredited investor verification, signed subscription agreement, and funding.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-phase">Step 4</div>
+                <div class="timeline-title">Onboarding</div>
+                <p>Receive confirmation, access to investor portal, and begin receiving performance reports.</p>
+            </div>
+        </div>
+        
+        <div class="signature-block">
+            <p style="margin-bottom: 2rem;">
+                Thank you for your interest in Wayy Funds. We look forward to the opportunity to 
+                work with you.
+            </p>
+            
+            <div class="signature-line"></div>
+            <div class="signature-name">Wayy Research LLC</div>
+            <div class="signature-title">General Partner, Wayy Funds LP</div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">wayy funds</div>
+            <p>research for people · people for research</p>
+            <p style="margin-top: 2rem;">
+                © 2024 Wayy Research LLC. All rights reserved.
+            </p>
+            <div class="footer-contact">
+                <p>
+                    <a href="https://wayyresearch.com">wayyresearch.com</a> · 
+                    <a href="mailto:invest@wayyresearch.com">invest@wayyresearch.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
